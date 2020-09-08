@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Airticket.views import prueba
+from registro import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prueba/',prueba)
+    path('', views.index)
 ]
