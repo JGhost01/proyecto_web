@@ -26,7 +26,7 @@ class Vuelo(models.Model):
     )
 
     estado = models.CharField(
-        max_length=50
+        max_length=50,
         help_text = "Agregue estado de vuelo",
         validators = [MinLengthValidator(2, "Debe introducir dos caracteres")]
     )
