@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AirTicket: Listado de Clientes
+{% endblock  %}
+
+
+{% block cont  %}
+
+<table class="table table-boardered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Nombre</td>
+			<td>Apellido</td>
+			<td>Telefono</td>
+			<td>Edad</td>
+		</tr>
+	</thead>
+	<tbody>
+        {% if clientes %}
+        {% for cliente  in clientes %} 
+		<tr>
+			<td>{{ cliente.id }}</td>
+			<td>{{ cliente.nombre }}</td>
+			<td>{{ cliente.apellido }}</td>
+			<td>{{ cliente.telefono }}</td>
+			<td>{{ cliente.edad }}</td>
+		</tr>
+        {% endfor %}
+        
+        {% else %}
+        <h4>No hay registros</h4>
+
+        {% endif %}
+	</tbody>
+</table>
+
+
+{% endblock  %}
