@@ -1,5 +1,5 @@
 from django import forms
-from registro.models import Cliente
+from registro.models import Cliente, Vuelo
 
 class form_cliente(forms.ModelForm):
     
@@ -26,3 +26,42 @@ class form_cliente(forms.ModelForm):
             "telefono": forms.TextInput(attrs={"class":"form-control"}),
             "edad": forms.NumberInput(attrs={"class":"form-control"}),
         }
+
+class form_vuelo(forms.ModelForm):
+    
+    class Meta:
+        model = Vuelo
+        fields = [
+            "tipo_vuelo",
+            "estado",
+            "clase",
+            "origen",
+            "destino",
+            "fecha_salida",
+            "fecha_regreso",
+            "clientes"
+            
+        ]
+
+        labels = {
+            "tipo_vuelo":"Tipo",
+            "estado":"Estado",
+            "clase":"Clase",
+            "origen":"Origen",
+            "destino":"Destino",
+            "fecha_salida":"Fecha de Salida",
+            "fecha_regreso":"Fecha de Regreso",
+            "clientes":"Cliente",
+        }
+
+        widget = {
+            "tipo_vuelo": forms.TextInput(attrs={"class":"form-control"}),
+            "estado": forms.TextInput(attrs={"class":"form-control"}),
+            "clase": forms.TextInput(attrs={"class":"form-control"}),
+            "origen": forms.TextInput(attrs={"class":"form-control"}),
+            "destino": forms.TextInput(attrs={"class":"form-control"}),
+            "fecha_salida": forms.TextInput(attrs={'type': 'date'}),
+            "fecha_regreso": forms.TextInput(attrs={'type': 'date'}),
+            "clientes": forms.Select(attrs={"class":"form-control"}),
+        }
+
