@@ -3,24 +3,22 @@
 
 
 {% block title %}
-AirTicket: Reserva
+AirTicket: Editar Cliente
 {% endblock  %}
-    
 
 {% block cont  %}
-
         {% if form.errors %}
             <div class="alert alert-danger" role="alert">
-            Error de datos al registrar el cliente!
+            Error de datos al editar el cliente!
             </div>
         {% endif %}
         <br>
-        <form class="form-horizontal" action = "{% url 'reservar' %}" method = "POST"> 
+        <form class="form-horizontal" action = "{% url 'clientes_update' cliente.id %}" method = "POST"> 
             {% csrf_token %}
-            <legend class="text-center header">Registro de Clientes</legend>
+            <legend class="text-center header">Editar Cliente</legend>
             {% if mensaje %}
                 <div class="alert alert-success" role="alert">
-                Cliente Registrado!
+                Cliente Modificado!
                 </div>
             {% endif %}
             <center>
@@ -37,9 +35,7 @@ AirTicket: Reserva
             </div>
             </center>
         </form>
+{% endblock  %}
+        
                 
         
-
-                    
-
-{% endblock  %}

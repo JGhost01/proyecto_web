@@ -6,7 +6,8 @@ AirTicket: Listado de Clientes
 
 
 {% block cont  %}
-
+<br>
+<legend class="text-center header">Lista de Clientes</legend>
 <table class="table table-boardered">
 	<thead>
 		<tr>
@@ -15,6 +16,8 @@ AirTicket: Listado de Clientes
 			<td>Apellido</td>
 			<td>Telefono</td>
 			<td>Edad</td>
+			<td>Editar</td>
+			<td>Eliminar</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,6 +29,9 @@ AirTicket: Listado de Clientes
 			<td>{{ cliente.apellido }}</td>
 			<td>{{ cliente.telefono }}</td>
 			<td>{{ cliente.edad }}</td>
+			<td><a class="btn btn-primary btn-md" href="{% url 'clientes_edit' cliente.id %}">Editar</a></td>
+			<td><a class="btn btn-primary btn-md" href="{% url 'clientes_delete' cliente.id %}">Eliminar</a></td>
+			
 		</tr>
         {% endfor %}
         
