@@ -23,5 +23,9 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('reservar/', views.reservar, name='reservar'),
     path('reservar/clientes/', views.clientes_view, name='clientes_view'),
+    path('reservar/clientes/edit/<int:id_cliente>', views.clientes_edit, name='clientes_edit'),
+    path('reservar/clientes/update/<int:id_cliente>', views.clientes_update, name='clientes_update'),
+    path('reservar/clientes/delete/<int:id_cliente>', views.clientes_delete, name='clientes_delete'),
     path('contac/', views.contac, name='contac')
+    
 ]

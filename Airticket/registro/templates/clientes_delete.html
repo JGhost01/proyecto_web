@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AirTicket: Eliminar Cliente
+{% endblock  %}
+
+{% block cont  %}
+
+    <form method = "POST">
+    {% csrf_token %}
+        <center>
+            <h3>¿Esta seguro de eliminar el cliente?</h3>
+            <button type="submit" class="btn btn-danger btn-lg">Eliminar</button>
+            <a class="btn btn-primary btn-lg" href="{% url 'clientes_view' %}">Cancelar</a>
+        </center>
+    </form>
+   
+
+{% endblock  %}
