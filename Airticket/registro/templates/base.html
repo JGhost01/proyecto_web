@@ -8,12 +8,16 @@
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 bg-white" id="mainNav">
             <div class="container ">
+                <a class="navbar-brand" href="#">
+                  <img src="https://imgur.com/52ANBTK.jpg" width="110" height="35" alt="" loading="lazy">
+                </a>
                 <a class="navbar-brand js-scroll-trigger text-secondary" href="{% url 'home' %}"><strong>Dominican Air Ticket</strong></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Notrostros</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'reservar' %}">Reserva</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'reservar' %}">Clientes</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Vuelos</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'contac' %}">Contacto</a></li>
                     </ul>
                 </div>
