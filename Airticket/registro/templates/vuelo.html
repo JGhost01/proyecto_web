@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+AirTicket: Vuelos
+{% endblock  %}
+    
+
+{% block cont  %}
+
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+            Error de datos al registrar el cliente!
+            </div>
+        {% endif %}
+        <br>
+        <form class="form-horizontal" action = "{% url 'vuelo' %}" method = "POST"> 
+            {% csrf_token %}
+            <legend class="text-center header">Registro de Vuelos</legend>
+            {% if mensaje %}
+                <div class="alert alert-success" role="alert">
+                Vuelo Registrado!
+                </div>
+            {% endif %}
+            <center>
+            <div class="form-group ">
+                <div class="col-md-8">
+                {{ form|crispy }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                <a class="btn btn-primary btn-lg" href="{% url 'vuelo_view' %}">Listado</a>
+                </div>
+            </div>
+            </center>
+        </form>
+                
+        
+
+                    
+
+{% endblock  %}

@@ -33,7 +33,6 @@ class form_vuelo(forms.ModelForm):
         model = Vuelo
         fields = [
             "tipo_vuelo",
-            "estado",
             "clase",
             "origen",
             "destino",
@@ -45,7 +44,6 @@ class form_vuelo(forms.ModelForm):
 
         labels = {
             "tipo_vuelo":"Tipo",
-            "estado":"Estado",
             "clase":"Clase",
             "origen":"Origen",
             "destino":"Destino",
@@ -55,13 +53,11 @@ class form_vuelo(forms.ModelForm):
         }
 
         widget = {
-            "tipo_vuelo": forms.TextInput(attrs={"class":"form-control"}),
-            "estado": forms.TextInput(attrs={"class":"form-control"}),
-            "clase": forms.TextInput(attrs={"class":"form-control"}),
+            "tipo_vuelo": forms.Select(attrs={"class":"form-control"}),
+            "clase": forms.Select(attrs={"class":"form-control"}),
             "origen": forms.TextInput(attrs={"class":"form-control"}),
             "destino": forms.TextInput(attrs={"class":"form-control"}),
             "fecha_salida": forms.TextInput(attrs={'type': 'date'}),
             "fecha_regreso": forms.TextInput(attrs={'type': 'date'}),
             "clientes": forms.Select(attrs={"class":"form-control"}),
         }
-

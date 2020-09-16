@@ -26,6 +26,11 @@ urlpatterns = [
     path('reservar/clientes/edit/<int:id_cliente>', views.clientes_edit, name='clientes_edit'),
     path('reservar/clientes/update/<int:id_cliente>', views.clientes_update, name='clientes_update'),
     path('reservar/clientes/delete/<int:id_cliente>', views.clientes_delete, name='clientes_delete'),
-    path('contac/', views.contac, name='contac')
+    path('contac/', views.contac, name='contac'),
+    path('vuelos/', views.vuelo, name='vuelo'),
+    path('vuelos/listado/', views.vuelo_view, name='vuelo_view'),
+    path('vuelos/edit/<int:id_vuelo>', views.vuelo_edit, name='vuelo_edit'),
+    path('vuelos/update/<int:id_vuelo>', views.vuelo_update, name='vuelo_update'),
+    path('vuelos/delete/<int:id_vuelo>', views.vuelo_delete, name='vuelo_delete'),
     
 ]

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AirTicket: Listado de Vuelos
+{% endblock  %}
+
+
+{% block cont  %}
+<br>
+<legend class="text-center header">Lista de Vuelos</legend>
+<table class="table table-boardered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Tipo de Vuelo</td>
+			<td>Clase</td>
+			<td>Origen</td>
+			<td>Destino</td>
+			<td>Fecha Salida</td>
+			<td>Fecha Regreso</td>
+			<td>Cliente</td>
+			<td>Editar</td>
+			<td>Eliminar</td>
+		</tr>
+	</thead>
+	<tbody>
+        {% if vuelos %}
+        {% for vuelo in vuelos %} 
+		<tr>
+			<td>{{ vuelo.id }}</td>
+			<td>{{ vuelo.tipo_vuelo }}</td>
+			<td>{{ vuelo.clase }}</td>
+			<td>{{ vuelo.origen }}</td>
+			<td>{{ vuelo.destino }}</td>
+			<td>{{ vuelo.fecha_salida }}</td>
+			<td>{{ vuelo.fecha_regreso }}</td>
+			<td>{{ vuelo.clientes }}</td>
+			<td><a class="btn btn-primary btn-md" href="{% url 'vuelo_edit' vuelo.id %}">Editar</a></td>
+			<td><a class="btn btn-primary btn-md" href="{% url 'vuelo_delete' vuelo.id %}">Eliminar</a></td>
+			
+		</tr>
+        {% endfor %}
+        
+        {% else %}
+        <h4>No hay registros</h4>
+
+        {% endif %}
+	</tbody>
+</table>
+
+
+{% endblock  %}

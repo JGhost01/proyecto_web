@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
 from django.utils.timezone import now
+
 # Create your models here.
 class Cliente(models.Model):
     nombre = models.CharField(
@@ -15,23 +16,31 @@ class Cliente(models.Model):
     edad = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"{self.nombre} {self.apellido} {self.telefono} {self.edad}"
+        return f"{self.nombre} {self.apellido}"
+
+
+class Tipos(models.Model):
+    tipo_vuelo = models.CharField(
+        max_length=50
+        )
+
+    def __str__(self):
+        return f"{self.tipo_vuelo}"
+
+
+class Clases(models.Model):
+    clase = models.CharField(
+        max_length=50
+        )
+
+    def __str__(self):
+        return f"{self.clase}"
+
 
 class Vuelo(models.Model):
-    tipo_vuelo = models.CharField(
-        max_length=50,
-        validators = [MinLengthValidator(2, "Debe introducir dos caracteres")]
-    )
+    tipo_vuelo = models.ForeignKey(Tipos, on_delete=models.CASCADE)
 
-    estado = models.CharField(
-        max_length=50,
-        validators = [MinLengthValidator(2, "Debe introducir dos caracteres")]
-    )
-
-    clase = models.CharField(
-        max_length=50,
-        validators = [MinLengthValidator(2, "Debe introducir dos caracteres")]
-    )
+    clase = models.ForeignKey(Clases, on_delete=models.CASCADE)
 
     origen = models.CharField(
         max_length=50,
