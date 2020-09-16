@@ -5,7 +5,6 @@ from django.utils.timezone import now
 class Cliente(models.Model):
     nombre = models.CharField(
         max_length=50,
-        help_text='Agrege su nombre',
         validators= [MinLengthValidator(2, "Debe introducir dos caracteres")]
     )
 
@@ -21,31 +20,26 @@ class Cliente(models.Model):
 class Vuelo(models.Model):
     tipo_vuelo = models.CharField(
         max_length=50,
-        help_text = "Agregue tipo de vuelo",
         validators = [MinLengthValidator(2, "Debe introducir dos caracteres")]
     )
 
     estado = models.CharField(
         max_length=50,
-        help_text = "Agregue estado de vuelo",
         validators = [MinLengthValidator(2, "Debe introducir dos caracteres")]
     )
 
     clase = models.CharField(
         max_length=50,
-        help_text = "Agregue clase de vuelo",
         validators = [MinLengthValidator(2, "Debe introducir dos caracteres")]
     )
 
     origen = models.CharField(
         max_length=50,
-        help_text = "Agregue origen",
         validators = [MinLengthValidator(2, "Debe introducir dos caracteres")]
     )
 
     destino = models.CharField(
         max_length=50,
-        help_text = "Agregue destino",
         validators = [MinLengthValidator(2, "Debe introducir dos caracteres")]
     )  
 
