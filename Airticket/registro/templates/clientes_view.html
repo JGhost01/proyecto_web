@@ -6,7 +6,15 @@ AirTicket: Listado de Clientes
 
 
 {% block cont  %}
+
 <br>
+<div class="container col-md-4 offset-md-8" methond="GET" >
+	<form class="form-inline my-2 my-lg-0">
+		<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="buscar" value="{{ request.GET.buscar }}">
+    	<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+	</form>
+</div>
+
 <legend class="text-center header">Lista de Clientes</legend>
 <table class="table table-boardered">
 	<thead>

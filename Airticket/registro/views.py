@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
 from django.template import Template, context, loader
+from django.db.models import Q
 from registro.forms import form_cliente, form_vuelo
 from registro.models import Cliente, Vuelo
 # Create your views here.
@@ -34,9 +35,18 @@ def reservar(request):
     return render(request, 'reservar.html', {'form':form})
 
 def clientes_view(request):
+    busqueda = request.GET.get("buscar")
     client = Cliente.objects.all()
-    contexto = {'clientes':client}
-    return render(request, 'clientes_view.html', contexto)
+    if busqueda:
+        client = Cliente.objects.filter(
+            Q(nombre__icontains = busqueda)|
+            Q(apellido__icontains = busqueda)|
+            Q(telefono__icontains = busqueda)|
+            Q(edad__icontains = busqueda)
+
+            ).distinct()
+
+    return render(request, 'clientes_view.html', {'clientes':client})
 
 def clientes_edit(request, id_cliente):
     client = Cliente.objects.filter(id=id_cliente).first()
@@ -69,9 +79,18 @@ def vuelo(request):
     return render(request, 'vuelo.html', {'form':form})
 
 def vuelo_view(request):
+    busqueda = request.GET.get("buscar")
     vuel = Vuelo.objects.all()
-    contexto = {'vuelos':vuel}
-    return render(request, 'vuelo_view.html', contexto)
+    if busqueda:
+        vuel = Vuelo.objects.filter(
+            Q(origen__icontains = busqueda)|
+            Q(destino__icontains = busqueda)|
+            Q(fecha_salida__icontains = busqueda)|
+            Q(fecha_regreso__icontains = busqueda)
+
+            ).distinct()
+
+    return render(request, 'vuelo_view.html', {'vuelos':vuel})
 
 def vuelo_edit(request, id_vuelo):
     vuel = Vuelo.objects.filter(id=id_vuelo).first()
@@ -92,3 +111,5 @@ def vuelo_delete(request, id_vuelo):
         vuel.delete()
         return redirect('vuelo_view')
     return render(request, 'vuelo_delete.html', {'vuelo':vuel})
+
+
