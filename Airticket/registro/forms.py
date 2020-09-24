@@ -20,7 +20,7 @@ class form_cliente(forms.ModelForm):
             "edad":"Edad",
         }
 
-        widget = {
+        widgets = {
             "nombre": forms.TextInput(attrs={"class":"form-control"}),
             "apellido": forms.TextInput(attrs={"class":"form-control"}),
             "telefono": forms.TextInput(attrs={"class":"form-control"}),
@@ -52,12 +52,12 @@ class form_vuelo(forms.ModelForm):
             "clientes":"Cliente",
         }
 
-        widget = {
+        widgets = {
             "tipo_vuelo": forms.Select(attrs={"class":"form-control"}),
             "clase": forms.Select(attrs={"class":"form-control"}),
             "origen": forms.TextInput(attrs={"class":"form-control"}),
             "destino": forms.TextInput(attrs={"class":"form-control"}),
             "fecha_salida": forms.TextInput(attrs={'type': 'date'}),
-            "fecha_regreso": forms.TextInput(attrs={'type': 'date'}),
+            "fecha_regreso": forms.TextInput(attrs={'type': 'date'}) ,
             "clientes": forms.Select(attrs={"class":"form-control"}),
         }

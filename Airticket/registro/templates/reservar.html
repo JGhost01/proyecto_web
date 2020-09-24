@@ -17,7 +17,7 @@ AirTicket: Reserva
         <br>
         <form class="form-horizontal" action = "{% url 'reservar' %}" method = "POST"> 
             {% csrf_token %}
-            <legend class="text-center header">Registro de Clientes</legend>
+            <strong><legend class="text-center header font-italic">Registro de Clientes</legend></strong>
             {% if mensaje %}
                 <div class="alert alert-success" role="alert">
                 Cliente Registrado!

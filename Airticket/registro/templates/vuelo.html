@@ -17,7 +17,7 @@ AirTicket: Vuelos
         <br>
         <form class="form-horizontal" action = "{% url 'vuelo' %}" method = "POST"> 
             {% csrf_token %}
-            <legend class="text-center header">Registro de Vuelos</legend>
+            <strong><legend class="text-center header font-italic">Registro de Vuelos</legend></strong>
             {% if mensaje %}
                 <div class="alert alert-success" role="alert">
                 Vuelo Registrado!

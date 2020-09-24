@@ -15,7 +15,7 @@ AirTicket: Editar Cliente
         <br>
         <form class="form-horizontal" action = "{% url 'clientes_update' cliente.id %}" method = "POST"> 
             {% csrf_token %}
-            <legend class="text-center header">Editar Cliente</legend>
+            <strong><legend class="text-center header font-italic">Editar Cliente</legend></strong>
             {% if mensaje %}
                 <div class="alert alert-success" role="alert">
                 Cliente Modificado!

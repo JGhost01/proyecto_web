@@ -15,7 +15,7 @@ AirTicket: Editar vuelos
         <br>
         <form class="form-horizontal" action = "{% url 'vuelo_update' vuelo.id %}" method = "POST"> 
             {% csrf_token %}
-            <legend class="text-center header">Editar Vuelos</legend>
+            <strong><legend class="text-center header font-italic">Editar Vuelos</legend></strong>
             {% if mensaje %}
                 <div class="alert alert-success" role="alert">
                 Vuelo Modificado!
